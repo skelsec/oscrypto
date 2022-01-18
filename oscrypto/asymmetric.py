@@ -76,6 +76,30 @@ elif _backend == 'win' or _backend == 'winlegacy':
         rsa_oaep_encrypt,
         rsa_oaep_decrypt,
     )
+elif _backend == 'pure':
+    from ._pure.asymmetric import (
+        Certificate,
+        dsa_sign,
+        dsa_verify,
+        ecdsa_sign,
+        ecdsa_verify,
+        generate_pair,
+        generate_dh_parameters,
+        load_certificate,
+        load_pkcs12,
+        load_private_key,
+        load_public_key,
+        PrivateKey,
+        PublicKey,
+        rsa_pkcs1v15_sign,
+        rsa_pkcs1v15_verify,
+        rsa_pss_sign,
+        rsa_pss_verify,
+        rsa_pkcs1v15_encrypt,
+        rsa_pkcs1v15_decrypt,
+        rsa_oaep_encrypt,
+        rsa_oaep_decrypt,
+    )
 
 else:
     from ._openssl.asymmetric import (

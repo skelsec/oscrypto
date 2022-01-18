@@ -20,6 +20,8 @@ if _backend == 'mac':
 elif _backend == 'win' or _backend == 'winlegacy':
     from ._win.util import pbkdf2, pkcs12_kdf
     from ._win._kernel32 import kernel32, handle_error
+elif _backend == 'pure':
+	from ._pure.util import pbkdf2, pkcs12_kdf
 else:
     from ._openssl.util import pbkdf2, pkcs12_kdf
 
@@ -119,13 +121,13 @@ def pbkdf2_iteration_calculator(hash_algorithm, key_length, target_ms=100, quiet
             repr(target_ms)
         ))
 
-    if pbkdf2.pure_python:
-        raise OSError(pretty_message(
-            '''
-            Only a very slow, pure-python version of PBKDF2 is available,
-            making this function useless
-            '''
-        ))
+    #if pbkdf2.pure_python:
+    #    raise OSError(pretty_message(
+    #        '''
+    #        Only a very slow, pure-python version of PBKDF2 is available,
+    #        making this function useless
+    #        '''
+    #    ))
 
     iterations = 10000
     password = 'this is a test'.encode('utf-8')

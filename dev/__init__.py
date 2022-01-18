@@ -30,6 +30,11 @@ task_keyword_args = [
         'placeholder': 'true',
         'env_var': 'OSCRYPTO_USE_CTYPES',
     },
+    {
+        'name': 'use_pure',
+        'placeholder': 'true',
+        'env_var': 'OSCRYPTO_USE_PURE',
+    },
 ]
 
 requires_oscrypto = True

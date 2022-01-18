@@ -850,8 +850,14 @@ def _parse_pkcs12(data, password, load_private_key):
         computed_hmac = hmac.new(mac_key, auth_safe['content'].contents, hash_mod).digest()
         stored_hmac = mac_data['mac']['digest'].native
         if not constant_compare(computed_hmac, stored_hmac):
-            raise ValueError('Password provided is invalid')
-
+            print('%s, %s, %s, %s, %s, %s' % (mac_algo,
+				password,
+				mac_data['mac_salt'].native,
+				mac_data['iterations'].native,
+				key_length,
+				3)
+            )
+            raise ValueError('Password provided is invalid. C:%s S: %s, %s > %s' % (computed_hmac, stored_hmac, hash_mod, mac_algo))
     for content_info in authenticated_safe:
         content = content_info['content']
 

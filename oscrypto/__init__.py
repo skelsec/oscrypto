@@ -147,6 +147,13 @@ def use_openssl(libcrypto_path, libssl_path, trust_list_path=None):
         _module_values['backend'] = 'openssl'
         _module_values['backend_config'] = new_config
 
+def use_pure():
+	"""
+	Forces the use of pure-python implemented cyphers
+	"""
+	print('Using pure Python cyphers! All be sloooooooow')
+	_module_values['backend'] = 'pure'
+	_module_values['backend_config'] = {}
 
 def use_winlegacy():
     """
