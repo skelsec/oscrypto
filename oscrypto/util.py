@@ -10,6 +10,8 @@ if sys.platform == 'darwin':
     from ._mac.util import rand_bytes
 elif sys.platform == 'win32':
     from ._win.util import rand_bytes
+elif sys.platform == 'emscripten':
+	from ._rand import rand_bytes
 else:
     from ._openssl.util import rand_bytes
 
