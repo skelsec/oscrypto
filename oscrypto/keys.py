@@ -12,6 +12,8 @@ if _backend == 'mac':
     from ._mac.asymmetric import parse_pkcs12
 elif _backend == 'win' or _backend == 'winlegacy':
     from ._win.asymmetric import parse_pkcs12
+elif _backend == 'pure':
+    from ._pure.asymmetric import parse_pkcs12
 else:
     from ._openssl.asymmetric import parse_pkcs12
 

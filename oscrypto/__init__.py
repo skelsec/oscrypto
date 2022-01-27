@@ -53,6 +53,8 @@ def backend():
                 _module_values['backend'] = 'win'
         elif sys.platform == 'darwin':
             _module_values['backend'] = 'mac'
+        elif sys.platform == 'emscripten':
+            _module_values['backend'] = 'pure'
         else:
             _module_values['backend'] = 'openssl'
 
